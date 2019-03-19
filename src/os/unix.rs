@@ -51,6 +51,18 @@ pub struct WaylandTheme {
     pub minimize_button_hovered: [u8; 4],
     /// Minimize button color
     pub minimize_button: [u8; 4],
+    /// Close button icon color when hovered over 
+    pub close_button_icon_hovered: [u8; 4],
+    /// Close button icon color
+    pub close_button_icon: [u8; 4],
+    /// Close button icon color when hovered over
+    pub maximize_button_icon_hovered: [u8; 4],
+    /// Maximize button icon color
+    pub maximize_button_icon: [u8; 4],
+    /// Minimize button icon color when hovered over
+    pub minimize_button_icon_hovered: [u8; 4],
+    /// Minimize button icon color
+    pub minimize_button_icon: [u8; 4],
 }
 
 struct WaylandThemeObject(WaylandTheme);
@@ -79,6 +91,13 @@ impl Theme for WaylandThemeObject {
             _ => self.0.close_button,
         }
     }
+    
+    fn get_close_button_icon_color(&self, state: ButtonState) -> [u8; 4] {
+        match state {
+            ButtonState::Hovered => self.0.close_button_icon_hovered,
+            _ => self.0.close_button_icon,
+        }
+    }
 
     fn get_maximize_button_color(&self, state: ButtonState) -> [u8; 4] {
         match state {
@@ -86,11 +105,25 @@ impl Theme for WaylandThemeObject {
             _ => self.0.maximize_button,
         }
     }
+    
+    fn get_maximize_button_color(&self, state: ButtonState) -> [u8; 4] {
+        match state {
+            ButtonState::Hovered => self.0.maximize_button_icon_hovered,
+            _ => self.0.maximize_button_icon,
+        }
+    }
 
     fn get_minimize_button_color(&self, state: ButtonState) -> [u8; 4] {
         match state {
             ButtonState::Hovered => self.0.minimize_button_hovered,
             _ => self.0.minimize_button,
+        }
+    }
+    
+    fn get_minimize_button_color(&self, state: ButtonState) -> [u8; 4] {
+        match state {
+            ButtonState::Hovered => self.0.minimize_button_icon_hovered,
+            _ => self.0.minimize_button_icon,
         }
     }
 }
