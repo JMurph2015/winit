@@ -106,7 +106,7 @@ impl Theme for WaylandThemeObject {
         }
     }
     
-    fn get_maximize_button_color(&self, state: ButtonState) -> [u8; 4] {
+    fn get_maximize_button_icon_color(&self, state: ButtonState) -> [u8; 4] {
         match state {
             ButtonState::Hovered => self.0.maximize_button_icon_hovered,
             _ => self.0.maximize_button_icon,
@@ -120,7 +120,7 @@ impl Theme for WaylandThemeObject {
         }
     }
     
-    fn get_minimize_button_color(&self, state: ButtonState) -> [u8; 4] {
+    fn get_minimize_button_icon_color(&self, state: ButtonState) -> [u8; 4] {
         match state {
             ButtonState::Hovered => self.0.minimize_button_icon_hovered,
             _ => self.0.minimize_button_icon,
